@@ -21,8 +21,12 @@ async function commentFormHandler(event) {
     if (response.ok) {
       document.location.reload();
     } else {
-      alert(response.statusText);
-    }
+      if (response.message) {
+        alert(response.message);
+      } else {
+        alert(response.statusText)
+      };
+    };
   }
 }
 

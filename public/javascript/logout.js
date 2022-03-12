@@ -7,8 +7,12 @@ async function logout() {
   if (response.ok) {
     document.location.replace('/');
   } else {
-    alert(response.statusText);
-  }
+      if (response.message) {
+        alert(response.message);
+      } else {
+        alert(response.statusText)
+      };
+    };
 }
 
 document.querySelector('#logout').addEventListener('click', logout);
